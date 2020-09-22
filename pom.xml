@@ -11,6 +11,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.rest.service.demo.SpringMain</start-class>
+		<docker.image.name>tonitingaurav/rest-demo</docker.image.name>
+		<docker.image.tag>latest</docker.image.tag>
+		<swagger.version>2.9.2</swagger.version>
 	</properties>
 
 
@@ -37,6 +41,21 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -68,6 +87,15 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.10</version>
+				<configuration>
+					<imageName>${docker.image.name}:${docker.image.tag}</imageName>
+					<dockerDirectory>${basedir}/target</dockerDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
