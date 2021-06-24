@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/empmgmt
+    username: nitin
+    password: ENC(pZgwFjsJ5zhz/u+8/D11WEfGd3e9HZPh)
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibenate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
