@@ -5,3 +5,5 @@ spring:
         git:
           username: tonitingaurav
           password: ENC(4xP9Ye0NJvUr+IPL6vmOlZQHYnyUZqeM)
+          uri: https://github.com/tonitingaurav/micro-service-demo-config
+          default-label: master

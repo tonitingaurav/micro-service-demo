@@ -1,3 +1,10 @@
+logging:
+  level:
+    root: info
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
 server:
   port: 8888
 spring:
@@ -6,7 +13,5 @@ spring:
       server:
         encrypt.enabled: false
         git:
-          uri: https://github.com/tonitingaurav/configuration
           search-paths:
-          - employee-management
-          - asset-management
+          - employee-management          

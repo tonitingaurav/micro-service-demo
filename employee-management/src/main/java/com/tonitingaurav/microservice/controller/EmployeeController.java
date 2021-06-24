@@ -52,6 +52,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping
+	@ApiOperation(value = "Create an employee in the system")
 	public ResponseEntity<Object> create(@Valid @RequestBody Employee employee) {
 		Integer employeeID = employeeEntityService.add(employee);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employeeID).toUri();
