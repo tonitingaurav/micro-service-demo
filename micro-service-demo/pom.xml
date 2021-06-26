@@ -71,6 +71,10 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
 			<version>4.4</version>
@@ -113,6 +117,7 @@
 		<module>../common</module>
 		<module>../employee-management</module>
 		<module>../configuration-server</module>
+		<module>../discovery-server</module>
 	</modules>
 
 </project>

@@ -3,16 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>configuration-server</artifactId>
+	<artifactId>discovery-server</artifactId>
 	<packaging>jar</packaging>
-	<name>configuration-server</name>
+	<name>discovery-server</name>
 	<url>http://maven.apache.org</url>
 
 
 	<properties>
 		<java.version>1.8</java.version>
-		<start-class>com.tonitingaurav.microservice.ConfigurationServerStartup</start-class>
-		<docker.image.name>tonitingaurav/configuration-server</docker.image.name>
+		<start-class>com.tonitingaurav.microservice.DiscoveryServerStartup</start-class>
+		<docker.image.name>tonitingaurav/discovery-server</docker.image.name>
 		<docker.image.tag>latest</docker.image.tag>
 	</properties>
 
@@ -27,16 +27,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>configuration-server</finalName>
+		<finalName>discovery-server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -75,5 +71,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

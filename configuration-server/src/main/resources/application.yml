@@ -14,4 +14,10 @@ spring:
         encrypt.enabled: false
         git:
           search-paths:
-          - employee-management          
+          - employee-management
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true

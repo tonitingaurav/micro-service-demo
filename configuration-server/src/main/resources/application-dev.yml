@@ -7,3 +7,9 @@ spring:
           password: ENC(4xP9Ye0NJvUr+IPL6vmOlZQHYnyUZqeM)
           uri: https://github.com/tonitingaurav/micro-service-demo-config
           default-label: master
+eureka:
+  instance:
+    ip-address: localhost
+  client:
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/ 

@@ -16,6 +16,12 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
 management:
   endpoints:
     web:
