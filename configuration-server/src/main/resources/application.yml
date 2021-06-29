@@ -6,7 +6,7 @@ jasypt:
     algorithm: PBEWithMD5AndDES
     iv-generator-classname: org.jasypt.iv.NoIvGenerator
 server:
-  port: 8888
+  port: 8889
 spring:
   cloud:
     config:

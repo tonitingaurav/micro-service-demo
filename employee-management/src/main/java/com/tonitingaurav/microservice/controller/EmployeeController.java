@@ -47,7 +47,7 @@ public class EmployeeController {
 	@GetMapping
 	@RequestMapping("/{id}")
 	@ApiOperation(value = "Get Employee Details")
-	public ResponseEntity<Object> get(@PathVariable("id") int id) {
+	public ResponseEntity<Employee> get(@PathVariable("id") int id) {
 		return ResponseEntity.ok(employeeEntityService.get(id));
 	}
 

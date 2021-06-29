@@ -116,6 +116,7 @@
 	<modules>		
 		<module>../common</module>
 		<module>../employee-management</module>
+		<module>../audit-management</module>
 		<module>../configuration-server</module>
 		<module>../discovery-server</module>
 	</modules>
