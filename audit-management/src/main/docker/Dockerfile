@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine
 RUN  apk update && apk upgrade && apk add netcat-openbsd
 EXPOSE 8080
 
-ENV APP_HOME /usr/local/audit-app
+ENV APP_HOME /usr/local/@project.build.finalName@
 ENV JAVA_OPTS=""
 
 RUN mkdir -p ${APP_HOME}

@@ -1,0 +1,43 @@
+version: '3.7'
+services:
+   zookeeper-1:
+      image: confluentinc/cp-zookeeper:latest
+      hostname: zookeeper-1
+      mem_limit: 512m
+      ports:
+      - 12181:12181
+      environment:
+         ZOOKEEPER_SERVER_ID: 1
+         ZOOKEEPER_CLIENT_PORT: 12181
+         ZOOKEEPER_TICK_TIME: 2000
+         ZOOKEEPER_INIT_LIMIT: 5
+         ZOOKEEPER_SYNC_LIMIT: 1
+   kafka-1:
+      image: confluentinc/cp-kafka:latest
+      hostname: localhost
+      mem_limit: 512m
+      ports: 
+      - 19092:19092
+      - 19091:19091
+      environment: 
+         KAFKA_BROKER_ID: 1
+         KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:12181
+         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: DOCKER:PLAINTEXT,LOCAL:PLAINTEXT
+         KAFKA_LISTENERS: DOCKER://0.0.0.0:19092,LOCAL://0.0.0.0:19091
+         KAFKA_ADVERTISED_LISTENERS: DOCKER://kafka-1:19092,LOCAL://localhost:19091
+         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+         KAFKA_INTER_BROKER_LISTENER_NAME: DOCKER
+         KAFKA_HEAP_OPTS: -Xmx256M -Xms128M
+         KAFKA_JVM_PERFORMANCE_OPTS: -Xmx256M -Xms128M
+   zipkin:
+      image: openzipkin/zipkin
+      ports: 
+      - 9411:9411
+      environment:
+         - KAFKA_BOOTSTRAP_SERVERS=kafka-1:19092  
+   db:
+      image: mysql:8
+      restart: always
+      #mem_limit: 500m
+      ports:
+      - 3307:3306

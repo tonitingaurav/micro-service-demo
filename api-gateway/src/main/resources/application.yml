@@ -21,3 +21,18 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      routes:
+      # Below will redirect http://localhost:8765/reference-doc to https://spring.io/projects
+      - id: reference-doc
+        uri: https://spring.io/projects
+        predicates:
+        - Path=/reference-doc/**
+        filters:
+        - RedirectTo=302, https://spring.io/projects
+      # for http://localhost:8765/employee, below predicate will match with eureka employee-management/employee/** 
+      # http://localhost:8765/employee and http://localhost:8765/employee-management/employee will return the same result
+      - id: employee-management
+        uri: lb://employee-management
+        predicates:
+        - Path=/employee/**
+          

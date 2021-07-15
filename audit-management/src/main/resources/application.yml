@@ -18,3 +18,17 @@ management:
     web:
       exposure:
         include: '*'
+resilience4j:
+  # https://resilience4j.readme.io/docs/circuitbreaker
+  circuitbreaker:
+    instances:
+      employee-management:
+        failure-rate-threshold: 60
+        slow-call-duration-threshold: 1000        
+  retry:
+    instances:
+      employee-management:
+        max-attempts: 3
+        wait-duration:
+          seconds: 1
+        enable-exponential-backoff: true

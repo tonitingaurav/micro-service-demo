@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tonitingaurav.microservice.client.EmployeeManagementClient;
+import com.tonitingaurav.microservice.client.fallback.EmployeeManagementFallback;
 import com.tonitingaurav.microservice.model.Employee;
 import com.tonitingaurav.microservice.model.Employees;
 
@@ -24,7 +24,7 @@ public class EmployeeController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
 	@Autowired
-	private EmployeeManagementClient employeeManagementClient;
+	private EmployeeManagementFallback employeeManagementClient;
 
 	@GetMapping
 	@ApiOperation(value = "Get All Employees Detils")
