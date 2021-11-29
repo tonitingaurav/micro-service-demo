@@ -1,0 +1,40 @@
+spring:
+  zipkin:
+    sender:
+      type: kafka
+  kafka:
+    bootstrap-servers:
+    - localhost:19091
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/empmgmt
+    username: nitin
+    password: ENC(pZgwFjsJ5zhz/u+8/D11WEfGd3e9HZPh)
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibenate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  cloud:
+    stream:
+      bindings:
+        kafka-log-publisher:
+          binder: kafka
+          destination: com.tonitingaurav.kafka.log          
+        kafka-log-consumer:
+          binder: kafka
+          destination: zipkin
+          group: kafka-log-group
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:19091
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: docker.for.win.localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

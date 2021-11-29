@@ -3,4 +3,6 @@
 /*/.project
 /*/.settings
 /*/.springBeans
+/*/.factorypath
+/micro-service-demo/docker/data/*
 base-code

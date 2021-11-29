@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 public class Employee {
 
-	@Size(min = 6)
+	@Size(min = 6, message = "User name should have at least 6 characters")
 	@ApiModelProperty(value = "Employee unique user name", example = "tonitingaurav")
 	private String userName;
 

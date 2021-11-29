@@ -4,6 +4,11 @@ services:
       extends:
          file: ../common/docker-compose.yml
          service: zookeeper-1
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost:12181"]
+         interval: 30s
+         timeout: 10s
+         retries: 8
       volumes:
       - ./data/zk/data:/var/lib/zookeeper/data
       - ./data/zk/logs:/var/lib/zookeeper/log
@@ -12,7 +17,8 @@ services:
          file: ../common/docker-compose.yml
          service: kafka-1
       depends_on:
-      - zookeeper-1
+      - zookeeper-1         
+      restart: on-failure
       volumes:
       - ./data/kafka/data:/var/lib/kafka/data
    zipkin:

@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.tonitingaurav.microservice.audit.Log;
 import com.tonitingaurav.microservice.db.service.EmployeeEntityService;
+import com.tonitingaurav.microservice.event.log.LogEventPublisher;
 import com.tonitingaurav.microservice.model.Employee;
 import com.tonitingaurav.microservice.model.Employees;
 
@@ -33,6 +35,9 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeEntityService employeeEntityService;
+	
+	@Autowired
+	private LogEventPublisher logEventPublisher;
 
 	@Value("${spring.jackson.date-format}")
 	private String dateFormat;
@@ -41,6 +46,7 @@ public class EmployeeController {
 	@ApiOperation(value = "Get All Employees Detils")
 	public ResponseEntity<Employees> getAll() {
 		LOGGER.info("Getting All Employees");
+		logEventPublisher.logMessage(new Log("Getting All Employees"));
 		return ResponseEntity.ok(employeeEntityService.getAll());
 	}
 
