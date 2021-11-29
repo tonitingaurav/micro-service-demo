@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>employee-management</artifactId>
-	<name>employee-management</name>
+	<artifactId>event-handler</artifactId>
+	<name>event-handler</name>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<start-class>com.tonitingaurav.microservice.EmployeeApplicationStartup</start-class>
-		<docker.image.name>tonitingaurav/employee-management</docker.image.name>
+		<docker.image.name>tonitingaurav/event-handler</docker.image.name>
 		<docker.image.tag>latest</docker.image.tag>
 	</properties>
 
@@ -39,22 +39,12 @@
 		</dependency>
 
 		<!-- -->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.tonitingaurav.microservice</groupId>
 			<artifactId>common</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -118,7 +108,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>employee-management</finalName>
+		<finalName>event-handler</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
