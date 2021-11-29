@@ -1,0 +1,28 @@
+spring:
+  zipkin:
+    sender:
+      type: kafka
+  kafka:
+    bootstrap-servers:
+    - localhost:19091
+  cloud:
+    stream:
+      bindings:
+        audit-in-0:
+          destination: com.tonitingaurav.kafka.log
+          group: kafka-log-group
+          consumer:
+            concurrency: 10
+            max-attempts: 3
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers:
+          - localhost:19091
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: docker.for.win.localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
